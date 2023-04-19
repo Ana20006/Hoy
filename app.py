@@ -13,7 +13,7 @@ def writeToFile(filename, message):
 
 @app.route('/')
 def homePage():
-    name = "Me Myname"
+    name = "Ana Irene Carbajal E"
     details = readDetails('static/details.txt')
     return render_template("base.html", name=name, aboutMe=details)
 
@@ -34,6 +34,13 @@ def formDemo():
 
 if __name__ == '__main__':
     app.run(debug=True, port=2000)
+
+
+@app.route('/form', methods=['GET', 'POST'])
+def formDemo():
+    if request.method == 'POST':
+        name=request.form['name']
+    return render_template('form.html', name=name)
 
     
 
